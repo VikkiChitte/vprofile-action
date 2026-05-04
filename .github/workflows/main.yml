@@ -27,6 +27,8 @@ jobs:
 
         - name: Setup SonarQube
           uses: warchant/setup-sonar-scanner@v7
+          with:
+            version: 5.0.1.3006
 
         - name: SonaQube Scan
           run: sonar-scanner
@@ -38,7 +40,7 @@ jobs:
             -Dsonar.junit.reporstsPath=target/surefire-reports/
             -Dsonar.jcoco.reportsPath=target/jacoco.exec
             -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml
-            -Dsonar.java.binaries=target/test-classes/com/visualpathit/accountservice/impl/AccountServiceImpl.class
+            -Dsonar.java.binaries=target/test-classes/com/visualpathit/account
 
         #Check the quality gate status
         - name: SonarQube Quality Gate Check
